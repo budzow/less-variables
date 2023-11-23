@@ -1,0 +1,39 @@
+/*
+ Customer code triggering css:S4662 https://rules.sonarsource.com/css/RSPEC-4662/ 
+ */
+@lien-hover-color : @noir;
+@couleur-liens : @noir;
+
+/*
+ Example from: https://lesscss.org/features/#variables-feature-overview
+ */
+ 
+// Variables
+@link-color:        #428bca; // sea blue
+@link-color-hover:  darken(@link-color, 10%);
+
+// Usage
+a,
+.link {
+  color: @link-color;
+}
+a:hover {
+  color: @link-color-hover;
+}
+.widget {
+  color: #fff;
+  background: @link-color;
+}
+
+/*
+ Lazy evaluation also seems to not raise an issue: https://lesscss.org/features/#variables-feature-lazy-evaluation
+*/
+
+.lazy-eval {
+  width: @var;
+}
+
+@var: @a;
+@a: 9%;
+
+
